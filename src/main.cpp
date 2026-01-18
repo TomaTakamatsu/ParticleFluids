@@ -1,17 +1,24 @@
 #include "raylib.h"
+#include "physics/FluidSolver.h"
+#include "graphics/Renderer.h"
 
 int main() {
-    InitWindow(800, 600, "Raylib Test - ParticleFluids");
+    float screenWidth = 800;
+    float screenHeight = 600;
+
+    InitWindow((int)screenWidth, (int)screenHeight, "Particle Fluid Simulator");
     SetTargetFPS(60);
 
-    while (!WindowShouldClose()) {
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
-        
-        DrawText("Raylib is working.", 280, 250, 30, LIGHTGRAY);
-        DrawCircle(400, 350, 50, BLUE);
+    FluidSolver solver(screenWidth, screenHeight);
+    Renderer renderer(solver);
 
-        EndDrawing();
+    solver.SpawnParticlesGrid(100);
+
+    while (!WindowShouldClose()) {
+        float dt = 1.0f / 60.0f;
+        solver.Update(dt);
+
+        renderer.Render();
     }
 
     CloseWindow();
