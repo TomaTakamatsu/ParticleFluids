@@ -3,13 +3,15 @@
 
 Renderer::Renderer(FluidSolver& s) : solver(s) {}
 
-void Renderer::Render() {
+void Renderer::Render()
+{
     BeginDrawing();
     ClearBackground(BLACK);
 
     DrawRectangleLines(0, 0, (int)solver.width, (int)solver.height, GREEN);
 
-    for (const auto& p : solver.particles) {
+    for (const auto& p : solver.particles)
+    {
         Vector2 pos = { p.position.x, p.position.y };
         DrawCircleV(pos, solver.particleRadius, BLUE);
     }

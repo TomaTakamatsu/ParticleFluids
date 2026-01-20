@@ -1,7 +1,8 @@
 #pragma once
 #include "physics/FluidSolver.h"
 
-class Renderer {
+class Renderer
+{
 public:
     Renderer(FluidSolver& solver);
 

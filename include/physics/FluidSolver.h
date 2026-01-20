@@ -2,7 +2,8 @@
 #include <vector>
 #include "physics/Particle.h"
 
-class FluidSolver {
+class FluidSolver
+{
 public:
     std::vector<Particle> particles;
 

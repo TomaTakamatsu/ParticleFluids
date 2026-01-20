@@ -2,7 +2,8 @@
 #include "physics/FluidSolver.h"
 #include "graphics/Renderer.h"
 
-int main() {
+int main()
+{
     float screenWidth = 800;
     float screenHeight = 600;
 
@@ -12,9 +13,12 @@ int main() {
     FluidSolver solver(screenWidth, screenHeight);
     Renderer renderer(solver);
 
+    solver.gravity = 980.0f;
+    solver.collisionDamper = 0.75f;
     solver.SpawnParticlesGrid(100);
 
-    while (!WindowShouldClose()) {
+    while (!WindowShouldClose())
+    {
         float dt = 1.0f / 60.0f;
         solver.Update(dt);
 
