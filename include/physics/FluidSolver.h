@@ -8,11 +8,12 @@ public:
     std::vector<Particle> particles;
 
     float gravity = 0.0f;
-    float smoothingRadius = 30.0f;
-    float targetDensity = 0.0005f;
-    float pressureMultiplier = 300000.0f;
+    float smoothingRadius = 15.0f;
+    float targetDensity = 0.0001f;
+    float pressureMultiplier = 500000.0f;
     float collisionDamper = 0.5f;
     
+    float particleCount = 1000.0f;
     float particleRadius = 3.0f;
     float particleMass = 10.0f;
 

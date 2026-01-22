@@ -1,10 +1,20 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.21)
+
 project(ParticleFluids)
+
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE) 
+
 add_subdirectory(vendor/raylib)
-file(GLOB_RECURSE SOURCES "src/*.cpp")
-add_executable(ParticleFluids ${SOURCES})
-target_include_directories(ParticleFluids PUBLIC include)
+
+add_executable(ParticleFluids
+    src/main.cpp
+    src/physics/FluidSolver.cpp
+    src/graphics/Renderer.cpp
+)
+
 target_link_libraries(ParticleFluids PRIVATE raylib)
+
+target_include_directories(ParticleFluids PRIVATE 
+    include 
+    vendor/raygui/src 
+)
