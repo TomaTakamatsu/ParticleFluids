@@ -4,22 +4,20 @@
 
 int main()
 {
-    float screenWidth = 800;
-    float screenHeight = 600;
+    float screenWidth = 500;
+    float screenHeight = 350;
 
     InitWindow((int)screenWidth, (int)screenHeight, "Particle Fluid Simulator");
-    SetTargetFPS(60);
+    SetTargetFPS(120);
 
     FluidSolver solver(screenWidth, screenHeight);
     Renderer renderer(solver);
 
-    solver.gravity = 980.0f;
-    solver.collisionDamper = 0.75f;
-    solver.SpawnParticlesGrid(100);
+    solver.SpawnParticlesGrid(500);
 
     while (!WindowShouldClose())
     {
-        float dt = 1.0f / 60.0f;
+        float dt = 1.0f / 120.0f;
         solver.Update(dt);
 
         renderer.Render();
